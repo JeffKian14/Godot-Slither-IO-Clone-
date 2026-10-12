@@ -4,7 +4,31 @@ A Slither.io-inspired game developed using Godot Engine, featuring **10 AI-contr
 
 The project integrates Godot with Python-based Reinforcement Learning, allowing players to compete against trained AI agents in real time.
 
-### Download & Play
+## How the Game Works
+
+Players compete against 10 AI-controlled snakes, collecting food to grow while avoiding collisions.
+
+The AI agents are trained using **PPO**. Godot communicates with Python through Godot RL Agents, allowing the trained model to receive game observations and return movement actions in real time.
+
+## What I Implemented
+
+- Developed the game environment, mechanics and player interactions using Godot and GDScript.
+- Implemented a reinforcement learning training pipeline using Python and Stable-Baselines3.
+- Integrated trained PPO agents into the Godot environment.
+- Automated Python AI startup and synchronisation.
+- Packaged the project into a playable Windows application.
+
+## Technologies Used
+
+| Component | Technology |
+|---|---|
+| Game Engine | Godot / GDScript |
+| Programming Language | Python |
+| RL Algorithm | Proximal Policy Optimisation (PPO) |
+| AI Framework | Stable-Baselines3 |
+| Integration | Godot RL Agents |
+
+## Download & Play
 
 **[Download the Windows Game Here](https://github.com/JeffKian14/Godot-Slither-IO-Clone-/releases/latest)**
 
@@ -16,37 +40,17 @@ The project integrates Godot with Python-based Reinforcement Learning, allowing 
 
 **To exit the game:** Press `Alt + F4`.
 
-> Note: Windows 64-bit only. Keep all extracted files together, including the AI folder. No separate Godot or Python installation is required for the tested packaged release.
+**Note:** Windows 64-bit only. Keep all extracted files together, including the AI folder. No separate Godot or Python installation is required for the tested packaged release.
 
-### Technologies Used
+## Acknowledgements & References
 
-- **Game Engine:** Godot / GDScript
-- **AI Framework:** Python, Stable-Baselines3
-- **Algorithm:** Proximal Policy Optimisation (PPO)
-- **Integration:** Godot RL Agents
+This project utilises the open-source **Godot RL Agents** framework developed by Ed Beeching and contributors to facilitate communication between Godot and Python-based reinforcement learning agents.
 
-### Project Highlights
+- **Original Repository:** [Godot RL Agents Plugin](https://github.com/edbeeching/godot_rl_agents_plugin/tree/main)
+- **RL Algorithm:** Proximal Policy Optimisation (PPO)
+- **Training Framework:** Stable-Baselines3
 
-- 10 trained AI opponents.
-- Player-versus-AI gameplay.
-- Automatic AI startup and synchronisation.
-- Integrated AI training and inference pipeline.
-
-
-### How the Game Works
-
-A player competes against 10 AI-controlled snakes in a Slither.io-inspired environment, collecting food to grow while avoiding collisions.
-
-The AI agents are trained using **Proximal Policy Optimisation (PPO)**. Godot communicates with Python through Godot RL Agents, allowing the trained model to receive game observations and return movement actions in real time.
-
-### What I Implemented
-
-- Developed the game environment, mechanics and player interactions using Godot and GDScript.
-- Implemented a reinforcement learning training pipeline using Python and Stable-Baselines3.
-- Integrated trained PPO agents into the Godot environment.
-- Automated Python AI startup and synchronisation.
-- Packaged the project into a playable Windows application.
-
+The game environment, gameplay mechanics, PPO training configuration, AI integration and Windows application packaging were implemented as part of this project.
 
 ---
 
