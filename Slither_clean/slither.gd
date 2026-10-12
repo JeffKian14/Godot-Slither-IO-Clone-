@@ -60,45 +60,60 @@ func _ready() -> void:
 	print("Godot game initialisation completed.")
 
 
+
 func start_python_ai() -> void:
 
-	# Prevent launching multiple processes
+	# Prevent duplicate AI processes
 	if ai_process_id != -1:
 		if OS.is_process_running(ai_process_id):
-			print("Python AI is already running.")
 			return
 
-		ai_process_id = -1
+	ai_process_id = -1
 
-	var script_path = ProjectSettings.globalize_path(
-		python_script_path
-	)
+	var launch_path: String
+	var launch_args: PackedStringArray = PackedStringArray()
 
-	# Verify that play.py exists
-	if not FileAccess.file_exists(script_path):
-		push_error("Python AI script not found: " + script_path)
-		return
+	# Running inside Godot Editor
+	if OS.has_feature("editor"):
 
-	print("-------------------------------------")
-	print("Starting Python AI automatically...")
-	print("Script: ", script_path)
-	print("-------------------------------------")
+		var script_path = ProjectSettings.globalize_path(
+			python_script_path
+		)
 
-	# Launch Python as an independent process
+		if not FileAccess.file_exists(script_path):
+			push_error("AI script missing: " + script_path)
+			return
+
+		launch_path = python_executable
+		launch_args.append(script_path)
+
+	# Running as an exported Windows application
+	else:
+
+		var game_folder = OS.get_executable_path().get_base_dir()
+
+		launch_path = game_folder.path_join(
+			"AI"
+		).path_join(
+			"SlitherAI.exe"
+		)
+
+		if not FileAccess.file_exists(launch_path):
+			push_error("Packaged AI missing: " + launch_path)
+			return
+
+	print("Starting AI: ", launch_path)
+
 	ai_process_id = OS.create_process(
-		python_executable,
-		PackedStringArray([script_path]),
+		launch_path,
+		launch_args,
 		false
 	)
 
 	if ai_process_id == -1:
-		push_error(
-			"Failed to launch Python. Check python_executable."
-		)
-		return
-
-	print("Python AI process launched successfully.")
-	print("Process ID: ", ai_process_id)
+		push_error("Unable to start AI process.")
+	else:
+		print("AI started. PID: ", ai_process_id)
 
 
 # Terminate the Python process when Godot exits.
