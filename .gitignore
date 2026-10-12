@@ -1,0 +1,15 @@
+# Godot cache
+.godot/
+
+# Old projects
+/New folder/
+/Slither_last/
+
+# Exported games
+*.exe
+*.pck
+*.zip
+
+# Temporary files
+*.tmp
+*.log

@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://ds1j13xc3crr0"]
+
+[ext_resource type="Script" uid="uid://cju6p6txhue4w" path="res://Slither_clean/ai_agent.gd" id="1_vhvf1"]
+[ext_resource type="PackedScene" uid="uid://c7y1mlpjgffo0" path="res://Slither_clean/food.tscn" id="2_jw1an"]
+[ext_resource type="Script" uid="uid://beoxsis5122gm" path="res://Slither_clean/rl_controller.gd" id="4_hevx6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+radius = 30.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yf5fn"]
+radius = 600.0
+
+[node name="AIAgent" type="CharacterBody2D" unique_id=1816575190 groups=["head"]]
+script = ExtResource("1_vhvf1")
+food_scene = ExtResource("2_jw1an")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=972120227]
+shape = SubResource("CircleShape2D_g4v7s")
+
+[node name="AIController2D" type="Node2D" parent="." unique_id=68323635]
+script = ExtResource("4_hevx6")
+metadata/_custom_type_script = "uid://bpl32gdve0c7e"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1728538683]
+zoom = Vector2(0.52, 0.52)
+
+[node name="FoodDetector" type="Area2D" parent="." unique_id=148459474]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FoodDetector" unique_id=113537158]
+shape = SubResource("CircleShape2D_yf5fn")

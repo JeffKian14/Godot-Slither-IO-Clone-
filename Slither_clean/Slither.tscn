@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://bo1sifwoptatu"]
+
+[ext_resource type="Script" uid="uid://bxmwqetmc45sx" path="res://Slither_clean/slither.gd" id="1_e5bsk"]
+[ext_resource type="PackedScene" uid="uid://c7y1mlpjgffo0" path="res://Slither_clean/food.tscn" id="2_mpspq"]
+[ext_resource type="PackedScene" uid="uid://dnq6pa104t5qs" path="res://Slither_clean/enemy_clean.tscn" id="3_qbifc"]
+[ext_resource type="PackedScene" uid="uid://bifquplfpoh3w" path="res://Slither_clean/player_clean.tscn" id="3_ya4ev"]
+[ext_resource type="PackedScene" uid="uid://ds1j13xc3crr0" path="res://Slither_clean/AI_Agent.tscn" id="5_y0iqu"]
+[ext_resource type="Script" uid="uid://c0s505lbdj088" path="res://addons/godot_rl_agents/sync.gd" id="5_ya4ev"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y0iqu"]
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_de4tt"]
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a32mp"]
+bg_color = Color(0.29072073, 0.29072073, 0.2907206, 0.68235296)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[node name="Slither_clean" type="Node2D" unique_id=1670528730]
+script = ExtResource("1_e5bsk")
+food_scene = ExtResource("2_mpspq")
+player_scene = ExtResource("3_ya4ev")
+enemy_scene = ExtResource("3_qbifc")
+ai_scene = ExtResource("5_y0iqu")
+
+[node name="Sync" type="Node" parent="." unique_id=645567318]
+script = ExtResource("5_ya4ev")
+metadata/_custom_type_script = "uid://c0s505lbdj088"
+
+[node name="StartMenu" type="CanvasLayer" parent="." unique_id=2145843693]
+process_mode = 3
+
+[node name="ColorRect" type="ColorRect" parent="StartMenu" unique_id=615513241]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5254902)
+
+[node name="StartButton" type="Button" parent="StartMenu" unique_id=1286794249]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -106.0
+offset_top = 6.0
+offset_right = 164.0003
+offset_bottom = 106.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_y0iqu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_de4tt")
+theme_override_styles/hover = SubResource("StyleBoxFlat_a32mp")
+text = "PLAY"
+
+[node name="GameTitle" type="Label" parent="StartMenu" unique_id=506128382]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -116.0
+offset_top = 200.0
+offset_right = 170.0
+offset_bottom = 269.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.65486175, 0.64967793, 0.863536, 1)
+theme_override_colors/font_shadow_color = Color(0.25006524, 0.1699362, 0.13286069, 0)
+theme_override_colors/font_outline_color = Color(0.70512146, 0.42856714, 0.8551314, 1)
+theme_override_font_sizes/font_size = 50
+text = "Jeff's Slither"

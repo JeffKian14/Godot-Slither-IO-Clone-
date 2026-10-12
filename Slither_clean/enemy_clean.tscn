@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dnq6pa104t5qs"]
+
+[ext_resource type="Script" uid="uid://dpq1n8udm7ce4" path="res://Slither_clean/enemy_clean.gd" id="1_xhj0o"]
+[ext_resource type="PackedScene" uid="uid://c7y1mlpjgffo0" path="res://Slither_clean/food.tscn" id="2_v4fm7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+radius = 30.0
+
+[node name="Enemy" type="CharacterBody2D" unique_id=1816575190]
+script = ExtResource("1_xhj0o")
+food_scene = ExtResource("2_v4fm7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=972120227]
+shape = SubResource("CircleShape2D_g4v7s")

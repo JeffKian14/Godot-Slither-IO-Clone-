@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://ocxde46m68vw"]
+
+[ext_resource type="Script" uid="uid://cw58nohrivx1i" path="res://Slither_clean/body_segment.gd" id="1_yvmdv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+radius = 30.0
+
+[node name="BodySegment" type="Area2D" unique_id=2082363258 groups=["body_segment"]]
+script = ExtResource("1_yvmdv")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=356362302]
+modulate = Color(0.61329097, 0.11560745, 0.067341045, 1)
+z_index = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1798895910]
+shape = SubResource("CircleShape2D_g4v7s")

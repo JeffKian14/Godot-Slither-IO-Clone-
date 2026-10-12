@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bifquplfpoh3w"]
+
+[ext_resource type="Script" uid="uid://xjvw1gx274hw" path="res://Slither_clean/player_clean.gd" id="1_jr46r"]
+[ext_resource type="PackedScene" uid="uid://c7y1mlpjgffo0" path="res://Slither_clean/food.tscn" id="2_r77f3"]
+[ext_resource type="Script" uid="uid://chbwbvurscb8e" path="res://Slither_clean/camera_player_clean.gd" id="4_7rc0d"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+radius = 30.0
+
+[node name="Player" type="CharacterBody2D" unique_id=1069241380 groups=["head"]]
+script = ExtResource("1_jr46r")
+food_scene = ExtResource("2_r77f3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1415842571]
+shape = SubResource("CircleShape2D_g4v7s")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=932320021]
+script = ExtResource("4_7rc0d")
