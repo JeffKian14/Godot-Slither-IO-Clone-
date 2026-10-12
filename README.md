@@ -1,8 +1,19 @@
+
+https://github.com/user-attachments/assets/79737a54-17ae-42ff-a59d-bc6cd5e72be1
 # Slither.io – Reinforcement Learning AI
 
 A Slither.io-inspired game developed using Godot Engine, featuring **10 AI-controlled snakes trained using Proximal Policy Optimisation (PPO)**.
 
 The project integrates Godot with Python-based Reinforcement Learning, allowing players to compete against trained AI agents in real time.
+
+## Gameplay Demo
+
+Watch the gameplay demonstration below, featuring the trained PPO agents competing in the Godot environment.
+
+
+https://github.com/user-attachments/assets/ba2408f0-9494-4a84-9734-cf8f80bc52d3
+
+
 
 ## How the Game Works
 
